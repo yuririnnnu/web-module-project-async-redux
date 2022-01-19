@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_START = 'FETCH_START';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
+export const FETCH_FAV = 'FETCH_FAV';
 
 export const getCat = () => (dispatch) => {
     console.log("getting a cat here")
@@ -20,4 +21,7 @@ export const fetchSuccess = (cat) => {
 }
 export const fetchFail = (errMessage) => {
     return ({type:FETCH_FAIL, payload: errMessage});
+}
+export const fetchFavCats = (cat) => {
+    return ({type:FETCH_FAV, payload: cat})
 }

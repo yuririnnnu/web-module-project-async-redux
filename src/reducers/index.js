@@ -1,4 +1,4 @@
-import {FETCH_START, FETCH_SUCCESS, FETCH_FAIL} from './../actions';
+import {FETCH_START, FETCH_SUCCESS, FETCH_FAIL, FETCH_FAV} from './../actions';
 
 const initialState = {
     cat: {
@@ -6,7 +6,8 @@ const initialState = {
         id: 123,
     },
     isFetching: false,
-    error: ''
+    error: '',
+    favCats:[]
 }
 
 export const reducer = (state = initialState, action) => {
@@ -31,6 +32,13 @@ export const reducer = (state = initialState, action) => {
                 cat:{},
                 isFetching: false,
                 error: action.payload
+            }
+        case FETCH_FAV:
+            return {
+                ...state,
+                favCats: action.payload,
+                error: '',
+                isFetching: false
             }
         default:
             return state;
